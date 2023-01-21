@@ -2,7 +2,12 @@
 // import for part1.
 import { merge02 } from './mergePart2';
 import { checkWord } from './checkWord';
-import { calculateTotal, calculateVotePercentage, calculatePrecinct } from './candidate';
+import {
+  calculateTotal,
+  calculateVotePercentage,
+  calculatePrecinct,
+  calculateSpent,
+} from './candidate';
 
 // const array1: Array<number> = [4, 5, 23, 18, 9, -5];
 // const array2: Array<number> = [18, 74, 88, 3, 7, 44];
@@ -53,15 +58,26 @@ const candidate: Array<Candidate> = [
     funding: 631792197,
   },
 ];
+
 const totalvotes: Array<number> = candidate.map(calculateTotal);
-
-console.log(totalvotes);
-
 const totalpercentage: Array<number> = calculateVotePercentage(totalvotes);
-console.log(totalpercentage);
+
 for (let i = 0; i < candidate.length; i += 1) {
   console.log(`${candidate[i].name} -- ${totalvotes[i]} votes -- ${totalpercentage[i]}%`);
 }
 
-const precinctPercentage: Array<number> = candidate.map(calculatePrecinct);
-console.log(precinctPercentage);
+const precinctPercentage: Array<number> = calculatePrecinct(candidate, candidate.length);
+const percentageVote = [];
+for (let i = 0; i < candidate.length; i += 1) {
+  console.log(`${candidate[i].name}:`);
+  for (let j = 0; j < candidate[0].votes.length; j += 1) {
+    percentageVote[j] =
+      Math.round(100 * ((candidate[i].votes[j] / precinctPercentage[j]) * 100)) / 100;
+    console.log(` Precinct ${j + 1} -- ${percentageVote[j]}%`);
+  }
+}
+
+const spent: Array<number> = calculateSpent(candidate, totalvotes);
+for (let i = 0; i < candidate.length; i += 1) {
+  console.log(`${candidate[i].name} spent $${spent[i]} per vote`);
+}
