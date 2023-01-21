@@ -62,7 +62,7 @@ console.log(totalvotes);
 const totalpercentage: Array<number> = calculateVotePercentage(totalvotes);
 console.log(totalpercentage);
 for (let i = 0; i < candidate.length; i += 1) {
-  console.log(candidate.name[i] '--' candidate.votes[i]' votes' '--' totalpercentage[i]'%');
+  console.log(`${candidate[i].name} -- ${totalvotes[i]} votes -- ${totalpercentage[i]}%`);
 }
 console.log();
 const precinctPercentage: Array<number> = candidate.map(calculatePrecinct);
