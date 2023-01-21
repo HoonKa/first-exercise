@@ -22,8 +22,6 @@ function calculateVotePercentage(total: Array<number>): Array<number> {
 
 function calculatePrecinct(vote: Candidate): Array<number> {
   const precinctPercentage: Array<number> = [];
-  // const total: number = 0;
-  // const count = 5;
   const total: Array<number> = [];
   let total1: number = 0;
   total1 += vote.votes[0];
@@ -37,15 +35,10 @@ function calculatePrecinct(vote: Candidate): Array<number> {
   let total4: number = 0;
   total4 += vote.votes[3];
   total.push(total4);
-
-  // for (let i = 0; i < count; i += 1) {
-  // total += vote.votes[i];
-  // precinctPercentage.push(total);
-  // }
   for (let i = 0; i < 3; i += 1) {
     precinctPercentage.push(vote.votes[i] / total[i]);
   }
-  // precinctPercentage.push(vote.votes[0] / total1);
+
   return precinctPercentage;
 }
 

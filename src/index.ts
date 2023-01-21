@@ -35,28 +35,26 @@ const candidate: Array<Candidate> = [
   {
     name: 'Edward Underwood',
     votes: [192, 147, 186, 114, 267],
-    fundings: 58182890,
+    funding: 58182890,
   },
   {
     name: 'Rose Olson',
     votes: [48, 90, 12, 21, 13],
-    fundings: 78889263,
+    funding: 78889263,
   },
   {
     name: 'Leonard Willis',
     votes: [206, 312, 121, 408, 382],
-    fundings: 36070689,
+    funding: 36070689,
   },
   {
     name: 'Nathaniel Taylor',
     votes: [37, 21, 38, 39, 29],
-    fundings: 631792197,
+    funding: 631792197,
   },
 ];
 const totalvotes: Array<number> = candidate.map(calculateTotal);
 
-// for (const total of totalvotes) {
-//  console.log(total);
 console.log(totalvotes);
 
 const totalpercentage: Array<number> = calculateVotePercentage(totalvotes);
@@ -64,15 +62,6 @@ console.log(totalpercentage);
 for (let i = 0; i < candidate.length; i += 1) {
   console.log(`${candidate[i].name} -- ${totalvotes[i]} votes -- ${totalpercentage[i]}%`);
 }
-console.log();
+
 const precinctPercentage: Array<number> = candidate.map(calculatePrecinct);
 console.log(precinctPercentage);
-
-/*
-function push(arg0: number): number[] {
-  throw new Error('Function not implemented.');
-} */
-// Edward Underwood spent  $64219.53 per vote, 906 vote
-// Rose Olson spent  $428745.99 per vote, 184 vote
-// Leonard Willis spent  $25241.91 per vote, 1429 vote
-// Nathaniel Taylor spent  $38523914.25 per vote, 164 vote
