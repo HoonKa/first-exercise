@@ -23,6 +23,8 @@ const mergedArray: Array<number> = merge02(array1, array2);
 
 console.log(mergedArray);
 
+//
+
 const secretWord = 'spoke';
 const attempt = 'scope';
 
@@ -35,6 +37,8 @@ for (const word of attempts) {
   const result = checkWord(word, 'spoke');
   console.log(result);
 }
+
+//
 
 const candidate: Array<Candidate> = [
   {
@@ -80,4 +84,24 @@ for (let i = 0; i < candidate.length; i += 1) {
 const spent: Array<number> = calculateSpent(candidate, totalvotes);
 for (let i = 0; i < candidate.length; i += 1) {
   console.log(`${candidate[i].name} spent $${spent[i]} per vote`);
+}
+
+//
+const name1 = candidate[0].name;
+const name2 = candidate[1].name;
+const name3 = candidate[2].name;
+const name4 = candidate[3].name;
+const per1 = totalpercentage[0];
+const per2 = totalpercentage[1];
+const per3 = totalpercentage[2];
+const per4 = totalpercentage[3];
+
+if (per1 > per2 && per1 > per3 && per1 > per4) {
+  console.log(`${name1} won the election.`);
+} else if (per2 > per1 && per2 > per3 && per2 > per4) {
+  console.log(`${name2} won the election.`);
+} else if (per3 > per1 && per3 > per2 && per3 > per4) {
+  console.log(`${name3} won the election.`);
+} else {
+  console.log(`${name4} won the election.`);
 }
